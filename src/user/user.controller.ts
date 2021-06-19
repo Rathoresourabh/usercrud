@@ -1,3 +1,4 @@
+import { HttpCode } from '@nestjs/common';
 import {
   Controller,
   Get,
@@ -15,6 +16,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Post()
+  @HttpCode(208)
   create(@Body() userBody: User) {
     return this.userService.create(userBody);
   }
